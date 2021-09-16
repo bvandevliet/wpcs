@@ -4,7 +4,7 @@
 	<description>Non-controversial generally-agreed upon WordPress Coding Standards</description>
 
 	<!-- Default tab width for indentation fixes and such. -->
-	<arg name="tab-width" value="4"/>
+	<arg name="tab-width" value="2"/>
 
 	<!--
 	#############################################################################
@@ -30,8 +30,8 @@
 	<rule ref="Generic.WhiteSpace.ScopeIndent">
 		<properties>
 			<property name="exact" value="false"/>
-			<property name="indent" value="4"/>
-			<property name="tabIndent" value="true"/>
+			<property name="indent" value="2"/>
+			<!-- <property name="tabIndent" value="true"/> -->
 			<property name="ignoreIndentationTokens" type="array">
 				<element value="T_HEREDOC"/>
 				<element value="T_NOWDOC"/>
@@ -39,11 +39,15 @@
 			</property>
 		</properties>
 	</rule>
-	<rule ref="WordPress.Arrays.ArrayIndentation"/>
+	<rule ref="WordPress.Arrays.ArrayIndentation">
+		<properties>
+			<property name="tabIndent" value="false"/>
+		</properties>
+	</rule>
 
-	<!-- Covers rule: Use real tabs and not spaces. -->
-	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
-	<rule ref="WordPress.WhiteSpace.PrecisionAlignment"/>
+	<!-- Covers rule: Use real spaces and not tabs. -->
+	<rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
+	<!-- <rule ref="WordPress.WhiteSpace.PrecisionAlignment"/> -->
 
 	<!-- Generic array layout check. -->
 	<!-- Covers rule: For associative arrays, each item should start on a new line
@@ -56,7 +60,11 @@
 
 	<!-- Covers rule: For switch structures case should indent one tab from the
 		 switch statement and break one tab from the case statement. -->
-	<rule ref="PSR2.ControlStructures.SwitchDeclaration"/>
+	<rule ref="PSR2.ControlStructures.SwitchDeclaration">
+		<properties>
+			<property name="indent" value="2"/>
+		</properties>
+	</rule>
 	<!-- Prevent duplicate messages for the same issue. Covered by other sniffs. -->
 	<rule ref="PSR2.ControlStructures.SwitchDeclaration.NotLower">
 		<severity>0</severity>
@@ -239,6 +247,7 @@
 	<!-- Covers rule: Call a function, like so: my_function( $param1, func_param( $param2 ) ); -->
 	<rule ref="PEAR.Functions.FunctionCallSignature">
 		<properties>
+			<property name="indent" value="2"/>
 			<property name="requiredSpacesAfterOpen" value="1"/>
 			<property name="requiredSpacesBeforeClose" value="1"/>
 
