@@ -219,7 +219,7 @@
 	<rule ref="WordPress.WhiteSpace.ControlStructureSpacing"/>
 
 	<!-- Covers rule: Define a function like so: function my_function( $param1 = 'foo', $param2 = 'bar' ) { -->
-	<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie">
+	<rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman">
 		<properties>
 			<property name="checkClosures" value="true"/>
 		</properties>
@@ -489,8 +489,8 @@
 	<!-- Lowercase PHP keywords, like class, function and case. -->
 	<rule ref="Generic.PHP.LowerCaseKeyword"/>
 
-	<!-- Class opening braces should be on the same line as the statement. -->
-	<rule ref="Generic.Classes.OpeningBraceSameLine"/>
+	<!-- Class opening braces should be on the next line. -->
+	<rule ref="PEAR.Classes.ClassDeclaration"/>
 
 	<!-- Object operators should not have whitespace around them unless they are multi-line. -->
 	<rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing">

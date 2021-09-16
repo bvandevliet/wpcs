@@ -342,62 +342,6 @@ class ControlStructureSpacingSniff extends Sniff {
 						}
 					}
 				}
-
-				if ( \T_WHITESPACE !== $this->tokens[ ( $parenthesisCloser + 1 ) ]['code']
-					&& ! ( // Do NOT flag : immediately following ) for return types declarations.
-						\T_COLON === $this->tokens[ ( $parenthesisCloser + 1 ) ]['code']
-						&& ( isset( $this->tokens[ $parenthesisCloser ]['parenthesis_owner'] ) === false
-							|| in_array( $this->tokens[ $this->tokens[ $parenthesisCloser ]['parenthesis_owner'] ]['code'], array( \T_FUNCTION, \T_CLOSURE ), true ) )
-					)
-					&& ( isset( $scopeOpener ) && \T_COLON !== $this->tokens[ $scopeOpener ]['code'] )
-				) {
-					$error = 'Space between opening control structure and closing parenthesis is required';
-					$fix   = $this->phpcsFile->addFixableError( $error, $scopeOpener, 'NoSpaceAfterCloseParenthesis' );
-
-					if ( true === $fix ) {
-						$this->phpcsFile->fixer->addContentBefore( $scopeOpener, ' ' );
-					}
-				}
-			}
-
-			// Ignore this for function declarations. Handled by the OpeningFunctionBraceKernighanRitchie sniff.
-			if ( \T_FUNCTION !== $this->tokens[ $stackPtr ]['code']
-				&& \T_CLOSURE !== $this->tokens[ $stackPtr ]['code']
-				&& isset( $this->tokens[ $parenthesisOpener ]['parenthesis_owner'] )
-				&& ( isset( $scopeOpener )
-				&& $this->tokens[ $parenthesisCloser ]['line'] !== $this->tokens[ $scopeOpener ]['line'] )
-			) {
-				$error = 'Opening brace should be on the same line as the declaration';
-				$fix   = $this->phpcsFile->addFixableError( $error, $parenthesisOpener, 'OpenBraceNotSameLine' );
-
-				if ( true === $fix ) {
-					$this->phpcsFile->fixer->beginChangeset();
-
-					for ( $i = ( $parenthesisCloser + 1 ); $i < $scopeOpener; $i++ ) {
-						$this->phpcsFile->fixer->replaceToken( $i, '' );
-					}
-
-					$this->phpcsFile->fixer->addContent( $parenthesisCloser, ' ' );
-					$this->phpcsFile->fixer->endChangeset();
-				}
-				return;
-
-			} elseif ( \T_WHITESPACE === $this->tokens[ ( $parenthesisCloser + 1 ) ]['code']
-				&& ' ' !== $this->tokens[ ( $parenthesisCloser + 1 ) ]['content']
-			) {
-
-				// Checking this: if (...) [*]{}.
-				$error = 'Expected exactly one space between closing parenthesis and opening control structure; "%s" found.';
-				$fix   = $this->phpcsFile->addFixableError(
-					$error,
-					$stackPtr,
-					'ExtraSpaceAfterCloseParenthesis',
-					$this->tokens[ ( $parenthesisCloser + 1 ) ]['content']
-				);
-
-				if ( true === $fix ) {
-					$this->phpcsFile->fixer->replaceToken( ( $parenthesisCloser + 1 ), ' ' );
-				}
 			}
 		}
 
