@@ -163,11 +163,11 @@
 
 	<!-- Commented out code should not be committed.
 		 https://github.com/WordPress/WordPress-Coding-Standards/pull/1463 -->
-	<rule ref="Squiz.PHP.CommentedOutCode">
+	<!-- <rule ref="Squiz.PHP.CommentedOutCode">
 		<properties>
 			<property name="maxPercentage" value="40"/>
 		</properties>
-	</rule>
+	</rule> -->
 
 
 	<!-- Prevent some typical mistakes people make accidentally.

@@ -73,6 +73,9 @@
 		<exclude name="Squiz.Commenting.InlineComment.NotCapital"/>
 		<!-- WP handbook doesn't clarify one way or another, so ignore -->
 		<exclude name="Squiz.Commenting.InlineComment.SpacingAfter"/>
+		<!-- Exclude to allow inline comments that do not end in full-stops, exclamation marks or question marks -->
+		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/>
+
 
 		<!-- Not in Inline Docs standard, and a code smell -->
 		<exclude name="Squiz.Commenting.LongConditionClosingComment"/>
