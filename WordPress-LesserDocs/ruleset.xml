@@ -10,6 +10,7 @@
 		<exclude name="Squiz.Commenting.FunctionComment.ThrowsNotCapital"/>
 		<exclude name="Squiz.Commenting.ClassComment.Missing"/>
 		<exclude name="Squiz.Commenting.VariableComment.Missing"/>
+		<exclude name="WordPress.WP.I18n.MissingTranslatorsComment"/>
 	</rule>
 
 </ruleset>
