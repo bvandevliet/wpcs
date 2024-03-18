@@ -4,13 +4,19 @@
 	<description>WordPress Coding Standards</description>
 
 	<rule ref="WordPress">
+		<exclude name="Generic.Commenting.DocComment.MissingShort"/>
 		<exclude name="Squiz.Commenting.FileComment"/>
 		<exclude name="Squiz.Commenting.FunctionComment.Missing"/>
 		<exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
 		<exclude name="Squiz.Commenting.FunctionComment.ThrowsNotCapital"/>
+		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
 		<exclude name="Squiz.Commenting.ClassComment.Missing"/>
 		<exclude name="Squiz.Commenting.VariableComment.Missing"/>
 		<exclude name="WordPress.WP.I18n.MissingTranslatorsComment"/>
+		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing"/>
+		<exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword"/>
+		<exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace"/>
+		<exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
 	</rule>
 
 </ruleset>
