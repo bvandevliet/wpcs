@@ -30,7 +30,7 @@
 	<rule ref="Generic.WhiteSpace.ScopeIndent">
 		<properties>
 			<property name="exact" value="false"/>
-			<property name="indent" value="2"/>
+			<property name="indent" value="4"/>
 			<!-- <property name="tabIndent" value="true"/> -->
 			<property name="ignoreIndentationTokens" type="array">
 				<element value="T_HEREDOC"/>
@@ -60,11 +60,7 @@
 
 	<!-- Covers rule: For switch structures case should indent one tab from the
 		 switch statement and break one tab from the case statement. -->
-	<rule ref="PSR2.ControlStructures.SwitchDeclaration">
-		<properties>
-			<property name="indent" value="2"/>
-		</properties>
-	</rule>
+	<rule ref="PSR2.ControlStructures.SwitchDeclaration"/>
 	<!-- Prevent duplicate messages for the same issue. Covered by other sniffs. -->
 	<rule ref="PSR2.ControlStructures.SwitchDeclaration.NotLower">
 		<severity>0</severity>
@@ -247,7 +243,6 @@
 	<!-- Covers rule: Call a function, like so: my_function( $param1, func_param( $param2 ) ); -->
 	<rule ref="PEAR.Functions.FunctionCallSignature">
 		<properties>
-			<property name="indent" value="2"/>
 			<property name="requiredSpacesAfterOpen" value="1"/>
 			<property name="requiredSpacesBeforeClose" value="1"/>
 
